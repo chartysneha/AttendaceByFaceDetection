@@ -1,8 +1,8 @@
-Attendance by Face Detection
+1. Attendance by Face Detection
 
 A simple and effective attendance marking system using OpenCV, face_recognition, and Python for automatic real-time face-based attendance.
 
-Overview
+2. Overview
 
 This project implements a face detection + recognition attendance system that can:
 
@@ -12,13 +12,13 @@ Recognize known faces from a stored image dataset
 
 Automatically mark attendance with name, date, and time
 
-Save attendance records into a .csv file
+Save attendance records into a CSV file
 
 Support adding new student images easily
 
-Algorithm: Face Recognition + Greedy Matching
+3. Algorithm: Face Recognition + Greedy Matching
 
-The system uses face encodings and greedy comparison:
+The system uses face encodings and a greedy comparison approach:
 
 Convert training images into 128-D face encodings
 
@@ -30,13 +30,13 @@ Extract face encodings
 
 Compare encodings greedily with known dataset
 
-Compute similarity using distance threshold
+Compute similarity using a distance threshold
 
 Select the best matching face
 
 Mark attendance only once per student
 
-Requirements
+4. Requirements
 
 Python 3.7+
 
@@ -46,9 +46,9 @@ NumPy
 
 face_recognition
 
-dlib (automatically installed with face_recognition)
+dlib (installed automatically with face_recognition)
 
-Installation
+5. Installation
 
 Install required packages:
 
@@ -57,11 +57,11 @@ pip install face_recognition
 pip install numpy
 pip install dlib
 
-Usage
-Running the Program
+6. Usage
+6.1 Running the Program
 python main.py
 
-Folder Structure
+7. Folder Structure
 Attendance-Face-Detection/
 ├── main.py                     # Main program: detection + attendance logic
 ├── encode_faces.py             # Encodes training images
@@ -72,8 +72,8 @@ Attendance-Face-Detection/
 │   └── ...
 └── README.md
 
-How It Works
-1. Load Training Images
+8. How It Works
+8.1 Load Training Images
 
 Reads all images in the Images/ folder
 
@@ -81,23 +81,23 @@ Extracts face encodings
 
 Stores names from file names
 
-2. Real-Time Face Detection
+8.2 Real-Time Face Detection
 
 Opens webcam using OpenCV
 
 Detects faces in each frame
 
-3. Greedy Face Matching
+8.3 Greedy Face Matching
 
-Compares the detected face encoding with known encodings
+Compares detected face encodings with known encodings
 
 Selects the closest match
 
-Applies distance threshold for accuracy
+Uses threshold to improve accuracy
 
-4. Attendance Marking
+8.4 Attendance Marking
 
-Writes:
+Writes the following into attendance.csv:
 
 Name
 
@@ -105,11 +105,9 @@ Date
 
 Time
 
-…into attendance.csv
+Ensures attendance is marked only once per person.
 
-Ensures attendance is only marked once per person
-
-Example
+9. Example
 from main import FaceAttendanceSystem
 
 system = FaceAttendanceSystem()
@@ -117,24 +115,24 @@ system = FaceAttendanceSystem()
 # Start recognition
 system.start_recognition()
 
-Notes
+10. Notes
 
 Keep images clear and front-facing
 
 Use JPG/PNG format
 
-Recommended size: 300×300px
+Recommended size: 300×300 px
 
 Better lighting gives better accuracy
 
-System marks attendance only once per session
+Attendance is marked only once per session
 
-Future Enhancements (Optional)
+11. Future Enhancements (Optional)
 
 Store attendance in a database
 
-Add voice notification
+Add voice notifications
 
-Use GUI with Tkinter
+Create GUI using Tkinter
 
-Add multiple camera support
+Support multiple cameras
